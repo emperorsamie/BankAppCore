@@ -1,0 +1,23 @@
+﻿@model BankAppCore.ViewModels.TransactionCustomerViewModel;
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+<form asp-controller="Home" asp-action="TransferMoney" method="post">
+
+    <label>Från kontonummer: </label>
+    <input name="dep" />
+    <br />
+
+    <label>Till kontonummer: </label>
+    <input name="with" />
+    <br />
+
+    <label>Summa: </label>
+    <input name="amount" />
+    <br />
+
+    <button>För över pengar</button>
+
+</form>

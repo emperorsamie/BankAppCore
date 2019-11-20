@@ -1,0 +1,70 @@
+﻿@model BankAppCore.ViewModels.CustomerDetailsViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+    <div class="container">
+        <h1>@Model.Customer.Givenname @Model.Customer.Surname</h1>
+        <br />
+        <label>Saldo: @Model.Balance</label>
+        <br />
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Transaction ID</td>
+                    <td>Account ID</td>
+                    <td>Date</td>
+                    <td>Type</td>
+                    <td>Operation</td>
+                    <td>Amount</td>
+                    <td>Balance</td>
+                    <td>Bank</td>
+                </tr>
+            </thead>
+            @foreach (var trans in Model.Transactions)
+            {
+
+                <tbody>
+                    <tr>
+                        <td>@trans.TransactionId</td>
+                        <td>@trans.AccountId</td>
+                        <td>@trans.Date</td>
+                        <td>@trans.Type</td>
+                        <td>@trans.Operation</td>
+                        <td>@trans.Amount</td>
+                        <td>@trans.Balance</td>
+                        <td>@trans.Bank</td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+
+
+        <table>
+            <tbody>
+                <tr id="buttonRow">
+                    <td colspan="3" align="center">
+                        @if (Model.CanShowMore)
+                        {
+                            <div id="spinner" class="spinner-border" style="display: none;" role="status">
+                                <span class="sr-only">Laddar...</span>
+                            </div>
+                            <div>
+                                <a data-ajax="true" data-ajax-mode="REPLACE-WITH" data-ajax-update="#buttonRow" class="btn btn-primary"
+                                   asp-route-page="@(Model.PageNumber+1)" asp-route-CustomerId="@Model.Customer.CustomerId"
+                                   data-ajax-loading="#spinner"
+                                   role="button">Visa flera</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-primary" role="alert">
+                                Slut på transaktioner.
+                            </div>
+                        }
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

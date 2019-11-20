@@ -1,0 +1,75 @@
+﻿@model BankAppCore.ViewModels.EditCustomerViewModel
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+<form asp-controller="Cashier" asp-action="EditCustomer" method="post">
+
+    <label asp-for="@Model.Customer.CustomerId">Kund ID: </label>
+    <input asp-for="@Model.Customer.CustomerId" />
+    <span asp-validation-for="@Model.Customer.CustomerId"></span>
+    <br />
+
+    <label asp-for="@Model.Customer.Gender">Kön: </label>
+    <input asp-for="@Model.Customer.Gender" />
+    <span asp-validation-for="@Model.Customer.Gender"></span>
+    <br />
+
+    <label asp-for="@Model.Customer.Givenname">Förnamn: </label>
+    <input asp-for="@Model.Customer.Givenname" />
+    <span asp-validation-for="@Model.Customer.Givenname"></span>
+    <br />
+
+    <label asp-for="@Model.Customer.Surname">Efternamn: </label>
+    <input asp-for="@Model.Customer.Surname" />
+    <span asp-validation-for="@Model.Customer.Surname"></span>
+    <br />
+
+    <label asp-for="@Model.Customer.Streetaddress">Gatuadress: </label>
+    <input asp-for="@Model.Customer.Streetaddress" />
+    <span asp-validation-for="@Model.Customer.Streetaddress"></span>
+    <br />
+
+    <label asp-for="@Model.Customer.City">Stad: </label>
+    <input asp-for="@Model.Customer.City" />
+    <span asp-validation-for="@Model.Customer.City"></span>
+    <br />
+
+    <label asp-for="@Model.Customer.Zipcode">Postnummer: </label>
+    <input asp-for="@Model.Customer.Zipcode" />
+    <span asp-validation-for="@Model.Customer.Zipcode"></span>
+    <br />
+    <label asp-for="@Model.Customer.Country">Land: </label>
+    <input asp-for="@Model.Customer.Country" />
+    <span asp-validation-for="@Model.Customer.Gender"></span>
+    <br />
+
+    <label asp-for="@Model.Customer.CountryCode">Landkod: </label>
+    <input asp-for="@Model.Customer.CountryCode" />
+    <span asp-validation-for="@Model.Customer.CountryCode"></span>
+    <br />
+
+    <label asp-for="@Model.Customer.Birthday">Födelsedag: </label>
+    <input asp-for="@Model.Customer.Birthday" />
+    <br />
+
+    <label asp-for="@Model.Customer.NationalId">Personnummer: </label>
+    <input asp-for="@Model.Customer.NationalId" />
+    <br />
+
+    <label asp-for="@Model.Customer.Telephonecountrycode">Telefon landskod: </label>
+    <input asp-for="@Model.Customer.Telephonecountrycode" />
+    <br />
+
+    <label asp-for="@Model.Customer.Telephonenumber">Telefonnummer: </label>
+    <input asp-for="@Model.Customer.Telephonenumber" />
+    <br />
+
+    <label asp-for="@Model.Customer.Emailaddress">Email: </label>
+    <input asp-for="@Model.Customer.Emailaddress" />
+    <br />
+
+    <input type="submit" value="Edit" />
+
+</form>

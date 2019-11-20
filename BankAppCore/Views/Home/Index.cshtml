@@ -1,0 +1,53 @@
+﻿@model BankAppCore.ViewModels.StatisticsViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="container" margin-left="50%" margin-right="50%">
+    <form asp-action="Index" method="post">
+
+        <input type="text" name="searchName" value="" placeholder="Namn" />
+        <input type="text" name="searchCity" value="" placeholder="Stad" />
+        <input type="submit" />
+    </form>
+</div>
+
+<div class="container" align="center">
+    <p>Antal kunder: @Model.totCustomers</p>
+    <p>Antal konton: @Model.totAccounts</p>
+    <p>Total summa pengar på alla konton: @Model.totBalance</p>
+</div>
+
+@if (Model.Customers != null && Model.Customers.Count > 0)
+{
+    <form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Kundnummer</td>
+                    <td>Personnummer</td>
+                    <td>Namn</td>
+                    <td>Adress</td>
+                    <td>Stad</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model.Customers)
+                {
+                    <tr>
+                        <td>
+                            <a asp-action="Index"
+                               asp-controller="Customer"
+                               asp-route-CustomerId="@c.CustomerId">
+                                @c.CustomerId
+                        </a>
+                    </td>
+                    <td>@c.NationalId</td>
+                    <td>@c.Givenname @c.Surname</td>
+                    <td>@c.Streetaddress</td>
+                    <td>@c.City</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </form>
+
+}
